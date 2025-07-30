@@ -1,3 +1,19 @@
+:root {
+	--bg-color: #f0f9f4;
+	--text-color: #2ecc71;
+	--bg-second-color: #fff;
+	--reverse-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: #112;
+    	--text-color: #5a7eff;
+		--bg-second-color: #444;
+		--reverse-color: white;
+  	}
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +22,7 @@
 
 body {
   font-family: sans-serif;
-  background-color: #f0f9f4;
+  background-color: var(--bg-color);
   color: #333;
   display: flex;
   justify-content: center;
@@ -15,7 +31,7 @@ body {
 }
 
 .app-container {
-  background-color: #fff;
+  background-color: var(--bg-second-color);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -25,7 +41,7 @@ body {
 }
 
 h1 {
-  color: #2ecc71;
+  color: var(--text-color);
   margin-bottom: 20px;
 }
 
@@ -39,13 +55,15 @@ h1 {
 input {
   padding: 10px;
   border-radius: 4px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--bg-second-color);
+  background-color: var(--bg-color);
+  caret-color: var(--reverse-color);
 }
 
 button {
   padding: 10px;
-  background-color: #2ecc71;
-  color: white;
+  background-color: var(--text-color);
+  color: var(--bg-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -53,7 +71,7 @@ button {
 }
 
 button:hover {
-  background-color: #27ae60;
+  background-color: color-mix(in srgb, var(--text-color), var(--reverse-color) 30%);
 }
 
 #bookmark-list {
@@ -62,9 +80,9 @@ button:hover {
 }
 
 #bookmark-list li {
-  background-color: #f9f9f9;
+  background-color: var(--bg-color);
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--bg-second-color);
   border-radius: 4px;
   margin-bottom: 10px;
   display: flex;
@@ -73,15 +91,15 @@ button:hover {
 }
 
 #bookmark-list a {
-  color: #2ecc71;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 #bookmark-list button {
-  background-color: #e74c3c;
+  background-color: red;
   padding: 5px 10px;
 }
 
 #bookmark-list button:hover {
-  background-color: #c0392b;
+  background-color: color-mix(in srgb, red, var(--reverse-color) 30%);
 }
